@@ -6,7 +6,7 @@ class AppTheme {
   static final textFormFieldBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(12),
     borderSide: const BorderSide(
-      color: AppColors.grey,
+      color: Colors.grey,
       width: 1.6,
     ),
   );

@@ -7,6 +7,12 @@ extension NavigationThroughString on String {
       this,
     );
   }
+
+  Future<dynamic> replaceNamed() async {
+    return AppConstants.navigationKey.currentState?.pushReplacementNamed(
+      this,
+    );
+  }
 }
 
 extension ContextExtension on BuildContext {

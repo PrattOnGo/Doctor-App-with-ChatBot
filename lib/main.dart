@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:healthsphere/pages/home_page.dart';
 import 'package:healthsphere/pages/login_page.dart';
+import 'package:healthsphere/pages/main/ai_bot_page.dart';
 import 'package:healthsphere/pages/register_page.dart';
 import 'package:healthsphere/pages/splash_page.dart';
 import 'package:healthsphere/values/app_constants.dart';
@@ -15,6 +18,9 @@ Future<void> main() async {
     anonKey:
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhudmFuYnZwcnR2a2JwZGV1bmJjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDAzNzY1MDksImV4cCI6MjAxNTk1MjUwOX0.-JOgzP7mVzCj3-aznPkVvBnh3kFcsFpTa9PNyx1jxlU',
   );
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent,
+  ));
   runApp(const MyApp());
 }
 
@@ -32,18 +38,19 @@ class MainApp extends StatelessWidget {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: AppTheme.themeData,
-      initialRoute: AppRoutes.loginScreen,
+      initialRoute: AppRoutes.loading,
       navigatorKey: AppConstants.navigationKey,
       routes: {
         AppRoutes.loginScreen: (context) => const LoginPage(),
-        AppRoutes.splashScreen: (context) => const SplashPage(),
+        AppRoutes.loading: (context) => const SplashPage(),
         AppRoutes.registerScreen: (context) => const RegisterPage(),
+        AppRoutes.home: (context) => const HomePage(),
+        AppRoutes.bot: (context) => const AIBotScreen(),
       },
     );
   }

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:healthsphere/main.dart';
 import 'package:healthsphere/values/app_routes.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -38,6 +39,12 @@ class _LoginPageState extends State<LoginPage> {
       await supabase.auth.signInWithPassword(
           email: emailController.text.trim(),
           password: passwordController.text.trim());
+      await AppRoutes.home.pushName();
+      if (context.mounted) {
+        setState(() {
+          isLoading = false;
+        });
+      }
     } on AuthException catch (error) {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -104,7 +111,7 @@ class _LoginPageState extends State<LoginPage> {
                       height: 6,
                     ),
                     Text(
-                      'Sign in to your Account',
+                      'Your gateway to holistic healthcare',
                       style: Theme.of(context).textTheme.bodySmall,
                     ),
                   ],

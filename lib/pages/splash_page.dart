@@ -23,14 +23,13 @@ class _SplashPageState extends State<SplashPage> {
     if (!mounted) {
       return;
     }
-
     final session = Supabase.instance.client.auth.currentSession;
     print(session);
 
     if (session != null) {
-      Navigator.of(context).pushReplacementNamed('/account');
+      AppRoutes.home.replaceNamed();
     } else {
-      AppRoutes.loginScreen.pushName();
+      AppRoutes.loginScreen.replaceNamed();
     }
   }
 
