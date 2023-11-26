@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:healthsphere/values/app_constants.dart';
 
 extension NavigationThroughString on String {
-  Future<dynamic> pushName() async {
-    return AppConstants.navigationKey.currentState?.pushNamed(
-      this,
-    );
+  Future<dynamic> pushName({dynamic data}) async {
+    return AppConstants.navigationKey.currentState
+        ?.pushNamed(this, arguments: data);
   }
 
   Future<dynamic> replaceNamed() async {

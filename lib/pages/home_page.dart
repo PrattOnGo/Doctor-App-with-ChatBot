@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:healthsphere/pages/main/ai_bot_page.dart';
+import 'package:healthsphere/pages/main/hostital_page.dart';
 import 'package:healthsphere/utils/extensions.dart';
 import 'package:healthsphere/values/app_routes.dart';
 
@@ -15,11 +15,10 @@ class _HomePageState extends State<HomePage> {
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
+    HospitalPage(),
     Text(
-      'Index 0: Home',
-      style: optionStyle,
+      '',
     ),
-    AIBotScreen(),
     Text(
       'Index 2: School',
       style: optionStyle,
@@ -41,9 +40,7 @@ class _HomePageState extends State<HomePage> {
     return PopScope(
       canPop: false,
       child: Scaffold(
-          body: Center(
-            child: _widgetOptions.elementAt(_selectedIndex),
-          ),
+          body: _widgetOptions.elementAt(_selectedIndex),
           bottomNavigationBar: BottomNavigationBar(
             items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
@@ -51,12 +48,12 @@ class _HomePageState extends State<HomePage> {
                 label: 'Hospitals',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.business),
-                label: 'Business',
+                icon: Icon(Icons.assistant_rounded),
+                label: 'Assistant',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.school),
-                label: 'School',
+                icon: Icon(Icons.personal_injury_rounded),
+                label: 'Doctors',
               ),
             ],
             currentIndex: _selectedIndex,

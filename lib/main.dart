@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:healthsphere/pages/home_page.dart';
 import 'package:healthsphere/pages/login_page.dart';
 import 'package:healthsphere/pages/main/ai_bot_page.dart';
+import 'package:healthsphere/pages/main/hospital_detail_page.dart';
 import 'package:healthsphere/pages/register_page.dart';
 import 'package:healthsphere/pages/splash_page.dart';
 import 'package:healthsphere/values/app_constants.dart';
@@ -51,6 +52,7 @@ class MyApp extends StatelessWidget {
         AppRoutes.registerScreen: (context) => const RegisterPage(),
         AppRoutes.home: (context) => const HomePage(),
         AppRoutes.bot: (context) => const AIBotScreen(),
+        AppRoutes.hospital: (context) => const HospitalDetailsScreen(),
       },
     );
   }

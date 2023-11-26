@@ -24,7 +24,6 @@ class _SplashPageState extends State<SplashPage> {
       return;
     }
     final session = Supabase.instance.client.auth.currentSession;
-    print(session);
 
     if (session != null) {
       AppRoutes.home.replaceNamed();
