@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healthsphere/pages/main/doctors_page.dart';
 import 'package:healthsphere/pages/main/hostital_page.dart';
 import 'package:healthsphere/utils/extensions.dart';
 import 'package:healthsphere/values/app_routes.dart';
@@ -12,17 +13,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+
   static const List<Widget> _widgetOptions = <Widget>[
     HospitalPage(),
     Text(
       '',
     ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
+    DoctorPage(),
   ];
 
   void _onItemTapped(int index) {

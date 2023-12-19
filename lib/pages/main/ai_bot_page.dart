@@ -79,10 +79,10 @@ class _AIBotScreenState extends State<AIBotScreen> {
       curve: Curves.fastOutSlowIn,
     );
     try {
-      final body =
-          jsonEncode({"model": "mistral", "prompt": message, "stream": false});
+      final body = jsonEncode(
+          {"model": "PartyushAI", "prompt": message, "stream": false});
       final res = await http.post(
-        Uri.https("cruel-bushes-report.loca.lt", "api/generate"),
+        Uri.https("gold-singers-occur.loca.lt", "api/generate"),
         headers: {"Content-Type": "application/json"},
         body: body,
       );
@@ -110,6 +110,7 @@ class _AIBotScreenState extends State<AIBotScreen> {
           chats.removeAt(chats.length - 1);
           isMessageLoading = false;
         });
+
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           content: Text(
             "Something went wrong",
@@ -130,7 +131,7 @@ class _AIBotScreenState extends State<AIBotScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Partyush A.I"),
+          title: const Text("Pratyush A.I"),
           leading: IconButton(
             icon: const Icon(Icons.chevron_left_rounded),
             onPressed: () {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healthsphere/components/doctor_card.dart';
 import 'package:healthsphere/main.dart';
 import 'package:healthsphere/models/doctor.dart';
 import 'package:healthsphere/models/hospital.dart';
@@ -52,6 +53,7 @@ class _HospitalDetailsScreenState extends State<HospitalDetailsScreen> {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Card(
               child: Padding(
@@ -118,7 +120,22 @@ class _HospitalDetailsScreenState extends State<HospitalDetailsScreen> {
                   ],
                 ),
               ),
-            )
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 8,
+                vertical: 20,
+              ),
+              child: Text(
+                "Doctors",
+                style: Theme.of(context).textTheme.headlineLarge,
+              ),
+            ),
+            Expanded(
+                child: ListView.builder(
+              itemCount: doctors.length,
+              itemBuilder: (context, index) => DoctorCard(data: doctors[index]),
+            ))
           ],
         ),
       ),

@@ -13,6 +13,7 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await Supabase.initialize(
     authFlowType: AuthFlowType.pkce,
     url: 'https://xnvanbvprtvkbpdeunbc.supabase.co',

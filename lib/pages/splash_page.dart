@@ -14,7 +14,6 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-
     _redirect();
   }
 
@@ -23,8 +22,8 @@ class _SplashPageState extends State<SplashPage> {
     if (!mounted) {
       return;
     }
-    final session = Supabase.instance.client.auth.currentSession;
 
+    final session = Supabase.instance.client.auth.currentSession;
     if (session != null) {
       AppRoutes.home.replaceNamed();
     } else {
