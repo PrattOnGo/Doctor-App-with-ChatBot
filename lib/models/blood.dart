@@ -1,13 +1,18 @@
+import 'package:healthsphere/models/hospital.dart';
+
 class Blood {
   final int id;
   final String bloodGroup;
   final int amount;
   final int hospital;
+  final Hospital hospitalName;
+
   Blood({
     required this.id,
     required this.bloodGroup,
     required this.amount,
     required this.hospital,
+    required this.hospitalName,
   });
 
   Map<String, dynamic> toMap() {
@@ -16,6 +21,7 @@ class Blood {
       'bloodGroup': bloodGroup,
       'amount': amount,
       'hospital': hospital,
+      'hospitalName': hospitalName,
     };
   }
 
@@ -25,6 +31,7 @@ class Blood {
       bloodGroup: map['blood_group'] as String,
       amount: map['amount'] as int,
       hospital: map['hospital'] as int,
+      hospitalName: map['hospitalName'] as Hospital,
     );
   }
 

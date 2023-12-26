@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:healthsphere/pages/main/blood_group_page.dart';
 import 'package:healthsphere/pages/main/doctors_page.dart';
 import 'package:healthsphere/pages/main/hostital_page.dart';
+import 'package:healthsphere/pages/main/settings_page.dart';
 import 'package:healthsphere/utils/extensions.dart';
 import 'package:healthsphere/values/app_routes.dart';
 
@@ -20,6 +22,8 @@ class _HomePageState extends State<HomePage> {
       '',
     ),
     DoctorPage(),
+    BloodGroupPage(),
+    SettingsPage(),
   ];
 
   void _onItemTapped(int index) {
@@ -52,10 +56,19 @@ class _HomePageState extends State<HomePage> {
                 icon: Icon(Icons.personal_injury_rounded),
                 label: 'Doctors',
               ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.bloodtype),
+                label: 'Blood availability',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.settings),
+                label: 'Settings',
+              ),
             ],
             currentIndex: _selectedIndex,
             selectedItemColor: Colors.amber[800],
             onTap: _onItemTapped,
+            unselectedItemColor: Colors.grey,
           )),
     );
   }

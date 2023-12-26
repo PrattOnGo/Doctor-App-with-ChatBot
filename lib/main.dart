@@ -16,9 +16,8 @@ Future<void> main() async {
 
   await Supabase.initialize(
     authFlowType: AuthFlowType.pkce,
-    url: 'https://xnvanbvprtvkbpdeunbc.supabase.co',
-    anonKey:
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhudmFuYnZwcnR2a2JwZGV1bmJjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDAzNzY1MDksImV4cCI6MjAxNTk1MjUwOX0.-JOgzP7mVzCj3-aznPkVvBnh3kFcsFpTa9PNyx1jxlU',
+    url: '',
+    anonKey: '',
   );
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
@@ -43,7 +42,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'HealthSphere',
       theme: AppTheme.themeData,
       initialRoute: AppRoutes.loading,
       navigatorKey: AppConstants.navigationKey,

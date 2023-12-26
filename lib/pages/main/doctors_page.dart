@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:healthsphere/components/main_doctor_card.dart';
 import 'package:healthsphere/main.dart';
 import 'package:healthsphere/models/doctor.dart';
+import 'package:healthsphere/models/hospital.dart';
 
 class DoctorPage extends StatefulWidget {
   const DoctorPage({super.key});
@@ -25,15 +26,18 @@ class _DoctorPageState extends State<DoctorPage> {
       return;
     }
     final res = await supabase.from("doctors").select() as List;
+    final res2 = await supabase.from("hospitals").select() as List;
+
     List<Doctor> temp = [];
+    List<Hospital> hospital = [];
+
+    for (var ele in res2) {
+      hospital.add(Hospital.fromMap(ele));
+    }
     for (var ele in res) {
-      final res2 = await supabase
-          .from("hospitals")
-          .select()
-          .eq("id", ele["hospital"])
-          .limit(1)
-          .single();
-      ele.addAll({"hospitalName": res2["name"]});
+      final tt =
+          hospital.firstWhere((element) => element.id == ele['hospital']);
+      ele.addAll({"hospitalName": tt.name});
 
       temp.add(Doctor.fromMapFull(ele));
     }
