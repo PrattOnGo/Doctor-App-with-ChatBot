@@ -19,8 +19,8 @@ class _AIBotScreenState extends State<AIBotScreen> {
   final ScrollController _controller = ScrollController();
   List<Message> chats = [];
   bool isMessageLoading = false;
-  String userId = "";
   bool loading = true;
+
   @override
   void initState() {
     getInitMessages();
