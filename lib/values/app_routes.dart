@@ -5,4 +5,5 @@ class AppRoutes {
   static const String home = '/home';
   static const String bot = '/ai';
   static const String hospital = '/hospital';
+  static const String hospitalEdit = '/hospitalEdit';
 }

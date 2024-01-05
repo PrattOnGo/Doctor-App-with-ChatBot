@@ -22,7 +22,6 @@ class Hospital {
       'location': location,
       'website': website,
       'description': description,
-      'id': id,
     };
   }
 
@@ -40,5 +39,23 @@ class Hospital {
   @override
   String toString() {
     return 'Hospital(name: $name, address: $address, location: $location, website: $website, description: $description, id: $id)';
+  }
+
+  Hospital copyWith({
+    String? name,
+    String? address,
+    String? location,
+    String? website,
+    String? description,
+    int? id,
+  }) {
+    return Hospital(
+      name: name ?? this.name,
+      address: address ?? this.address,
+      location: location ?? this.location,
+      website: website ?? this.website,
+      description: description ?? this.description,
+      id: id ?? this.id,
+    );
   }
 }

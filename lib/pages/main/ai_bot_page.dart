@@ -82,7 +82,7 @@ class _AIBotScreenState extends State<AIBotScreen> {
       final body = jsonEncode(
           {"model": "PartyushAI", "prompt": message, "stream": false});
       final res = await http.post(
-        Uri.https("large-carrots-give.loca.lt", "api/generate"),
+        Uri.http("10.0.2.2:11434", "api/generate"),
         headers: {"Content-Type": "application/json"},
         body: body,
       );
