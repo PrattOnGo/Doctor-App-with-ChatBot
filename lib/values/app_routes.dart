@@ -7,4 +7,5 @@ class AppRoutes {
   static const String hospital = '/hospital';
   static const String hospitalEdit = '/hospitalEdit';
   static const String bloodEdit = '/bloodEdit';
+  static const String profile = '/profile';
 }

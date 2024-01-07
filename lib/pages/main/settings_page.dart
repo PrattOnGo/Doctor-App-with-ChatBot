@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:healthsphere/components/doctor_card.dart';
+import 'package:healthsphere/components/doctor_card_with_edit_button.dart';
 import 'package:healthsphere/components/hospital_card_edit.dart';
 import 'package:healthsphere/main.dart';
 import 'package:healthsphere/models/doctor.dart';
@@ -44,7 +44,17 @@ class _SettingsPageState extends State<SettingsPage> {
       setState(() {
         h = Hospital.fromMap(res);
       });
-    } else if (tempRole == "doctor") {}
+    } else if (tempRole == "doctor") {
+      final res = await supabase
+          .from("doctors")
+          .select()
+          .eq("user_id", supabase.auth.currentUser?.id)
+          .limit(1)
+          .single();
+      setState(() {
+        d = Doctor.fromMap(res);
+      });
+    }
   }
 
   @override
@@ -81,7 +91,9 @@ class _SettingsPageState extends State<SettingsPage> {
                     }
                   })
               : role == 'doctor' && d != null
-                  ? DoctorCard(data: d!)
+                  ? DoctorCardWithEdit(
+                      data: d!,
+                    )
                   : Container(),
           ElevatedButton(
             onPressed: () async {
