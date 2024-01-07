@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:healthsphere/pages/home_page.dart';
 import 'package:healthsphere/pages/login_page.dart';
 import 'package:healthsphere/pages/main/ai_bot_page.dart';
+import 'package:healthsphere/pages/main/blood_group_edit_page.dart';
 import 'package:healthsphere/pages/main/edit_hospital_page.dart';
 import 'package:healthsphere/pages/main/hospital_detail_page.dart';
 import 'package:healthsphere/pages/register_page.dart';
@@ -57,6 +58,7 @@ class MyApp extends StatelessWidget {
         AppRoutes.bot: (context) => const AIBotScreen(),
         AppRoutes.hospital: (context) => const HospitalDetailsScreen(),
         AppRoutes.hospitalEdit: (context) => const HospitalEditScreen(),
+        AppRoutes.bloodEdit: (context) => const BloodGroupEditPage(),
       },
     );
   }

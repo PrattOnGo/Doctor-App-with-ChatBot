@@ -65,19 +65,12 @@ class _SettingsPageState extends State<SettingsPage> {
               style: Theme.of(context).textTheme.displayMedium,
             ),
           ),
-          ElevatedButton(
-            onPressed: () async {
-              await supabase.auth.signOut();
-              AppRoutes.loading.pushName();
-            },
-            style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(6))),
-            child: const Text("Logout"),
-          ),
           role == 'admin' && h != null
               ? HospitalCardEdit(
                   data: h!,
+                  callback2: (hos) {
+                    AppRoutes.bloodEdit.pushName(data: hos);
+                  },
                   callback: (hos) async {
                     var res = await AppRoutes.hospitalEdit.pushName(data: hos)
                         as Hospital;
@@ -89,7 +82,17 @@ class _SettingsPageState extends State<SettingsPage> {
                   })
               : role == 'doctor' && d != null
                   ? DoctorCard(data: d!)
-                  : Container()
+                  : Container(),
+          ElevatedButton(
+            onPressed: () async {
+              await supabase.auth.signOut();
+              AppRoutes.loading.pushName();
+            },
+            style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(6))),
+            child: const Text("Logout"),
+          ),
         ],
       ),
     );

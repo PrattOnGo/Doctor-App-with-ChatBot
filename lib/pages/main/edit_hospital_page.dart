@@ -19,8 +19,6 @@ class _HospitalEditScreenState extends State<HospitalEditScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
-
     Future.delayed(Duration.zero, () {
       final data = ModalRoute.of(context)!.settings.arguments as Hospital;
       nameController.value = TextEditingValue(text: data.name);

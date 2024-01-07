@@ -3,10 +3,14 @@ import 'package:healthsphere/models/hospital.dart';
 
 class HospitalCardEdit extends StatelessWidget {
   const HospitalCardEdit(
-      {super.key, required this.data, required this.callback});
+      {super.key,
+      required this.data,
+      required this.callback,
+      required this.callback2});
 
   final Hospital data;
   final void Function(Hospital data) callback;
+  final void Function(Hospital data) callback2;
 
   @override
   Widget build(BuildContext context) {
@@ -45,16 +49,32 @@ class HospitalCardEdit extends StatelessWidget {
                         )
                       : Container(),
                   const SizedBox(height: 15),
-                  TextButton.icon(
-                    icon: const Icon(Icons.edit),
-                    style: TextButton.styleFrom(
-                        foregroundColor: Theme.of(context).primaryColor,
-                        side: const BorderSide(
-                          width: 1,
-                          color: Colors.grey,
-                        )),
-                    onPressed: () => callback(data),
-                    label: const Text("Edit"),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      TextButton.icon(
+                        icon: const Icon(Icons.edit),
+                        style: TextButton.styleFrom(
+                            foregroundColor: Theme.of(context).primaryColor,
+                            side: const BorderSide(
+                              width: 1,
+                              color: Colors.grey,
+                            )),
+                        onPressed: () => callback(data),
+                        label: const Text("Hospital"),
+                      ),
+                      TextButton.icon(
+                        icon: const Icon(Icons.edit),
+                        style: TextButton.styleFrom(
+                            foregroundColor: Theme.of(context).primaryColor,
+                            side: const BorderSide(
+                              width: 1,
+                              color: Colors.grey,
+                            )),
+                        onPressed: () => callback2(data),
+                        label: const Text("Blood Avaliblity"),
+                      ),
+                    ],
                   ),
                 ],
               ),

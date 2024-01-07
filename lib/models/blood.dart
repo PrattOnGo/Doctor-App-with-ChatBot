@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:healthsphere/models/hospital.dart';
 
 class Blood {
@@ -25,6 +26,14 @@ class Blood {
     };
   }
 
+  Map<String, dynamic> toMapSpecial() {
+    return <String, dynamic>{
+      'blood_group': bloodGroup,
+      'amount': amount,
+      'hospital': hospital,
+    };
+  }
+
   factory Blood.fromMap(Map<String, dynamic> map) {
     return Blood(
       id: map['id'] as int,
@@ -38,5 +47,21 @@ class Blood {
   @override
   String toString() {
     return 'Blood(id: $id, bloodGroup: $bloodGroup, amount: $amount, hospital: $hospital)';
+  }
+
+  Blood copyWith({
+    int? id,
+    String? bloodGroup,
+    int? amount,
+    int? hospital,
+    Hospital? hospitalName,
+  }) {
+    return Blood(
+      id: id ?? this.id,
+      bloodGroup: bloodGroup ?? this.bloodGroup,
+      amount: amount ?? this.amount,
+      hospital: hospital ?? this.hospital,
+      hospitalName: hospitalName ?? this.hospitalName,
+    );
   }
 }
